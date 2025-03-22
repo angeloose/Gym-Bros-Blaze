@@ -27,16 +27,24 @@ export default function Index() {
         <View style={styles.scoreBox}>
           <Image
             source={require("../assets/images/Consis_Icon.png")}
-            style = {styles.scoreIcons}
+            style = {{width: 40, height: 40, marginLeft: 1}}
           />
           <Text style={styles.scoreValue}>90</Text>
           <Text style={styles.scoreTitle}>CONSISTENCY</Text>
         </View>
         <View style={styles.scoreBox}>
+          <Image
+            source={require("../assets/images/pr_icon.png")}
+            style = {{width: 40, height: 40, marginLeft: 0}}
+          />
           <Text style={styles.scoreValue}>85</Text>
           <Text style={styles.scoreTitle}>PR</Text>
         </View>
         <View style={styles.scoreBox}>
+          <Image
+            source={require("../assets/images/overall_icon.png")}
+            style = {{width: 40, height: 40, marginLeft: 0}}
+          />
           <Text style={styles.scoreValue}>88</Text>
           <Text style={styles.scoreTitle}>OVERALL</Text>
         </View>
