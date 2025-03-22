@@ -4,19 +4,18 @@ import { useRouter } from "expo-router";
 export default function Index() {
   const router = useRouter();
   const userName = "John";
-  const profilePicUrl = "https://example.com/path/to/profile.jpg";
 
   return (
     <View style={styles.container}>
       <View style={styles.profileContainer}>
-        <Image source={{ uri: profilePicUrl }} style={styles.profilePic} />
+        <Image
+          source={require("../assets//images/demo_pfp.jpg")} // adjust the path as needed
+          style={styles.profilePic}
+        />
         <Text style={styles.greeting}>Hello, {userName}!</Text>
       </View>
       <Text style={styles.welcomeText}>Welcome to the Gym App</Text>
-      <Button
-        title="Log a Session"
-        onPress={() => router.push("/logSession")}
-      />
+      <Button title="Log a Session" onPress={() => router.push("/logSession")} />
     </View>
   );
 }
@@ -37,7 +36,7 @@ const styles = StyleSheet.create({
   profilePic: {
     width: 50,
     height: 50,
-    borderRadius: 25, // makes it circular
+    borderRadius: 25,
     marginRight: 10,
   },
   greeting: {
