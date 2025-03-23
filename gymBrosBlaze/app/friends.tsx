@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TextInput, Button, FlatList, TouchableOpacity } from 'react-native';
-import axios from 'axios';
+import axios from "axios";
 import { useRouter } from 'expo-router';
 
 interface Friend {
