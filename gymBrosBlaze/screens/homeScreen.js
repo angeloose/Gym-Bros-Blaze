@@ -1,76 +1,64 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity} from "react-native";
-
+import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 
 export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      {/* Top Section */}
+      <View style={styles.topContainer}>
         <Text style={styles.welcomeText}>WELCOME TO</Text>
-        <Text style={styles.welcomeText2}>GYM BROS BLAZE</Text>
+        <Image 
+          source={require("../assets/images/blazeLogo.png")} 
+          style={styles.logoImage} 
+        />
       </View>
-        
 
+      {/* Buttons Section */}
       <View style={styles.containerB}>
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Login")}>
-          <Text style={styles.buttonText}>Login</Text>
+          <Text style={styles.buttonText}>LOGIN</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Sign Up")}>
-          <Text style={styles.buttonText}>Sign Up</Text>
+          <Text style={styles.buttonText}>SIGN UP</Text>
         </TouchableOpacity>
       </View>
-        
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1, // Take up full screen space
     backgroundColor: "#292929",
   },
   topContainer: {
-    marginTop: 20,
-    marginLeft: 15,
-    alignItems: "flex-start",
-  },
-  subprofileContainer: {
-    flexDirection: "column",
-    alignItems: "flex-start",
-  },
-  subGreeting: {
-    fontSize: 15,
-    fontWeight: "bold",
-    color: "#bdbdbd",
+    flex: 2, // Takes up more space for text and image
+    justifyContent: "center", // Vertically center the items
+    alignItems: "center", // Horizontally center the items
+    paddingTop: 40, // Adds top padding to give space from the top
   },
   welcomeText: {
-    fontSize: 18,
+    fontSize: 20,
     color: "#fff",
-    marginBottom: 20,
-  },
-  welcomeText2: {
-    fontSize: 35,
-    color: "#fff",
-    bottom: 25
-  },
-  text: {
-    color: "white",
-    fontSize: 18,
-    fontWeight: "bold",
+    textAlign: "center", // Center text
   },
 
+  logoImage: {
+    width: 500,
+    height: 500,
+    marginTop: 2, // Adjust space between the text and image
+  },
   containerB: {
-    flex: 1,
-    flexDirection: 'row',           // Arrange buttons side by side
-    justifyContent: 'space-between', // Space buttons out
-    padding: 20,
-    alignItems: 'center',           // Vertically center the buttons
+    flexDirection: 'row',
+    justifyContent: 'space-between', // Space out the buttons horizontally
+    paddingHorizontal: 20,
+    paddingBottom: 60,
   },
   button: {
     backgroundColor: '#6200ea',
     padding: 15,
     borderRadius: 5,
-    width: '45%',                   // Makes the button a bit smaller than half of the container
+    width: '45%',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -78,5 +66,4 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 18,
   },
-  
 });
