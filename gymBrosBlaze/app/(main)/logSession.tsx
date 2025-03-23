@@ -28,7 +28,7 @@ export default function logSession() {
         <View style={styles.line} />
       </View>
       <Text style = {styles.scoreHeading}>TIME (MINS):</Text>
-      <TextInput
+        <TextInput
           placeholder=""
           value={duration}
           onChangeText={setDuration}
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   },
   topContainer: {
     marginTop: 20,
-    marginLeft: 0,
+    marginLeft: 20,
     alignItems: "center",
   },
   headingContainer:{

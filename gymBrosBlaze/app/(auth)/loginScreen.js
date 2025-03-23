@@ -52,7 +52,7 @@ export default function LoginScreen({ navigation }) {
         secureTextEntry
       />
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
-        <Text style={styles.buttonText}>Login</Text>
+        <Text style={styles.buttonText}>LOGIN</Text>
       </TouchableOpacity>
     </View>
   );
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     color: "#fff",
   },
-  input: {
+  inputig: {
     width: "100%",
     padding: 15,
     borderWidth: 1,
@@ -83,6 +83,7 @@ const styles = StyleSheet.create({
     color: "#fff",
   },
   button: {
+    marginTop: 10,
     backgroundColor: "#007AFF",
     padding: 15,
     borderRadius: 10,
@@ -93,5 +94,24 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 18,
     fontWeight: "bold",
+  },
+  input: {
+    width: "100%",
+    backgroundColor: "#3d3d3d",
+    borderRadius: 10,
+    borderWidth: 0,
+    padding: 12,
+    fontSize: 16,
+    color: "#fff",
+    // iOS shadow
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
+    // Android elevation
+    elevation: 5,
+    marginVertical: 10,
+    marginLeft: 20,
+    marginRight: 20,
   },
 });

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Button, Alert, StyleSheet, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
 
 const SignUpScreen = ({ navigation }) => {
@@ -54,17 +54,22 @@ const SignUpScreen = ({ navigation }) => {
       <TextInput
         style={styles.input}
         placeholder="Username"
+        placeholderTextColor="#fff"
         value={username}
         onChangeText={setUsername}
       />
       <TextInput
         style={styles.input}
         placeholder="Password"
+        placeholderTextColor="#fff"
         secureTextEntry
         value={password}
         onChangeText={setPassword}
       />
-      <Button title="SIGN UP" onPress={goToLogin} />
+
+      <TouchableOpacity style={styles.button} onPress={handleSignUp}>
+        <Text style={styles.buttonText}>SIGN UP</Text>
+      </TouchableOpacity>
 
     </View>
   );
@@ -74,20 +79,49 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
+    alignItems: "center",
     padding: 20,
     backgroundColor: "#292929",
   },
   header: {
-    fontSize: 24,
+    alignItems: "center",
+    marginTop: 20,
     marginBottom: 20,
-    textAlign: 'center',
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "#fff",
   },
   input: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginBottom: 10,
-    paddingLeft: 10,
+    width: "100%",
+    backgroundColor: "#3d3d3d",
+    borderRadius: 10,
+    borderWidth: 0,
+    padding: 12,
+    fontSize: 16,
+    color: "#fff",
+    // iOS shadow
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
+    // Android elevation
+    elevation: 5,
+    marginVertical: 10,
+    marginLeft: 20,
+    marginRight: 20,
+  },
+  button: {
+    marginTop: 10,
+    backgroundColor: "#007AFF",
+    padding: 15,
+    borderRadius: 10,
+    alignItems: "center",
+    width: "100%",
+  },
+  buttonText: {
+    color: "white",
+    fontSize: 18,
+    fontWeight: "bold",
   },
 });
 
