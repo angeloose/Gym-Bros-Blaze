@@ -47,8 +47,8 @@ const styles = StyleSheet.create({
   },
   welcomeText: {
     fontSize: 20,
+    fontWeight: "bold",
     color: "#fff",
-    textAlign: "center", // Center text
   },
 
   logoImage: {
