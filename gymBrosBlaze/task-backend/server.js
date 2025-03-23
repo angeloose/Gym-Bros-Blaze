@@ -1,24 +1,35 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-require('dotenv').config();
-
-const taskRoutes = require('./routes/tasks');
 
 const app = express();
+const port = process.env.PORT || 5000;
+
+// Middleware
 app.use(cors());
 app.use(express.json());
 
-app.use('/api/tasks', taskRoutes);
+// Connect to MongoDB
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then(() => {
+  console.log('✅ Connected to MongoDB via Mongoose');
+}).catch((err) => {
+  console.error('❌ Mongoose connection error:', err);
+});
 
-const friendRoutes = require('./routes/friends');
-app.use('/api/friends', friendRoutes);
+// Routes
+const authRoutes = require('./routes/auth');
+app.use('/api', authRoutes);
 
+// Default route
+app.get('/', (req, res) => {
+  res.send('GymBros API is running!');
+});
 
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => {
-    app.listen(process.env.PORT, () =>
-      console.log(`Server running on port ${process.env.PORT}`)
-    );
-  })
-  .catch((err) => console.error(err));
+// Start server
+app.listen(port, () => {
+  console.log(`🚀 Server is running at http://localhost:${port}`);
+});
