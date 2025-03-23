@@ -26,7 +26,7 @@ export default function Index() {
         <Button 
           title="Manage Friends" 
           onPress={() => router.push('/friends')} 
-          color="#6A5ACD"
+          color="#3a7ff0"
         />
       </View>
       
