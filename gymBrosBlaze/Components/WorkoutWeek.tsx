@@ -20,9 +20,9 @@ export default function WorkoutWeek() {
       {weekData.map((item, index) => (
         <View key={index} style={styles.dayContainer}>
           {item.worked ? (
-            <Ionicons name="checkmark-circle" size={24} color="green" />
+            <Ionicons name="checkmark-circle" size={24} color="#3a7ff0" />
           ) : (
-            <Ionicons name="close-circle" size={24} color="red" />
+            <Ionicons name="close-circle" size={24} color="#fff" />
           )}
           <Text style={styles.dayText}>{item.day}</Text>
         </View>

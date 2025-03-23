@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, Button } from "react-native";
 import { useRouter } from "expo-router";
-import WorkoutWeek from "./WorkoutWeek";
+import WorkoutWeek from "../Components/WorkoutWeek";
 
 export default function Index() {
   const router = useRouter();
@@ -63,10 +63,6 @@ export default function Index() {
       <WorkoutWeek />
 
       {/* Center Section */}
-      <View style={styles.centerContainer}>
-        <Text style={styles.welcomeText}>Welcome to the Gym App</Text>
-        <Button title="Log a Session" onPress={() => router.push("/logSession")} />
-      </View>
     </View>
   );
 }
