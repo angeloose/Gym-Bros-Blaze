@@ -54,6 +54,7 @@ export default function FriendsPage() {
         value={newFriend}
         onChangeText={setNewFriend}
         style={styles.input}
+        placeholderTextColor="#FFFF00"
       />
       <Button title="Add Friend" onPress={addFriend} />
 
