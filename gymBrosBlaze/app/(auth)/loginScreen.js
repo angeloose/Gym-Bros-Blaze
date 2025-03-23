@@ -1,33 +1,47 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
 import { useRouter } from 'expo-router';
+import { API_BASE_URL } from '../../config'; // or adjust if config.js is elsewhere
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 export default function LoginScreen({ navigation }) {
   const router = useRouter();
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   // IMPLEMENT BACKEND AND LOGIN PROPERLY
-  const handleLogin = () => {
+  const handleLogin = async () => {
     try {
-      //const response = await fetch("https://your-api.com/login", {
-      //  method: "POST",
-      //  headers: { "Content-Type": "application/json" },
-      //  body: JSON.stringify({ email, password }),
-      //});
+      const response = await fetch(`${API_BASE_URL}/bypassLogin`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username }),
+      });
       
-      //if (!response.ok) {
-      //  throw new Error(`HTTP error! status: ${response.status}`);
-      //}
+      if (!response.ok) {
+        console.log("Status:", response.status);
+        const errorData = await response.json();
+        console.log("Error data:", errorData);
+        Alert.alert("Login Failed", errorData.error || `Status: ${response.status}`);
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
 
-      //const data = await response.json();
-      //console.log("Login response:", data);
+      const data = await response.json();
+      console.log("Login response:", data);
+      if (data.token) {
+        // Save the token (e.g., AsyncStorage, Context, Redux, etc.)
+        await AsyncStorage.setItem("userToken", data.token);
+        // Navigate to the main app
+        router.push('/main'); 
 
       // Handle success (e.g., navigate, store token)
-      router.push('/main'); // Goes to main.tsx (tabs layout)
+      // Goes to main.tsx (tabs layout)
+      }
 
     } catch (error) {
       console.error("Login error:", error);
+      Alert.alert("Error", "There was an error logging in.");
     }
     
   };
@@ -40,8 +54,8 @@ export default function LoginScreen({ navigation }) {
         style={styles.input}
         placeholder="Username"
         placeholderTextColor="#fff"
-        value={email}
-        onChangeText={setEmail}
+        value={username}
+        onChangeText={setUsername}
       />
       <TextInput
         style={styles.input}

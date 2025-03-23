@@ -2,6 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const leaderboardRoutes = require("./routes/leaderboard");
+const authRouter = require('./routes/auth');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -24,12 +26,16 @@ mongoose.connect(process.env.MONGO_URI, {
 const authRoutes = require('./routes/auth');
 app.use('/api', authRoutes);
 
+app.use("/leaderboard", leaderboardRoutes);
+
+app.use("/auth", authRouter);
+
 // Default route
 app.get('/', (req, res) => {
   res.send('GymBros API is running!');
 });
 
 // Start server
-app.listen(port, () => {
+app.listen(port, () =>  {
   console.log(`🚀 Server is running at http://localhost:${port}`);
 });
