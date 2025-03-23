@@ -55,7 +55,7 @@ export default function logSession() {
           {/* Add as many exercises as you need */}
         </Picker>
         <TouchableOpacity style={styles.button} onPress={handleLogSession}>
-          <Text style={styles.buttonText}>Log Session</Text>
+          <Text style={styles.buttonText}>LOG SESSION</Text>
         </TouchableOpacity>
     </View>
   );
