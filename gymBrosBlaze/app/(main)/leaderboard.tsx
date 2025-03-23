@@ -25,7 +25,7 @@ const Leaderboard = () => {
 
   return (
     <ImageBackground 
-      source={require('../assets/images/demo.jpg')} // Replace with your image path
+      source={require('../../assets/images/demo.jpg')} // Replace with your image path
       style={styles.backgroundImage}
     >
       <View style={styles.overlay}>
