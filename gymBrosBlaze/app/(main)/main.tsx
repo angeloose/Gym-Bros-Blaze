@@ -1,8 +1,9 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, Button } from "react-native";
 import { useRouter } from "expo-router";
+import WorkoutWeek from "../../Components/WorkoutWeek"
 
-export default function Index() {
+export default function main() {
   const router = useRouter();
   const userName = "JOHN JOHNATHAN";
 
@@ -12,49 +13,55 @@ export default function Index() {
       <View style={styles.topContainer}>
         <View style={styles.profileContainer}>
           <Image
-            source={require("../assets/images/demo_pfp.jpg")}
+            source={require("../../assets/images/demo_pfp.jpg")}
             style={styles.profilePic}
           />
+          
           <View style={styles.subprofileContainer}>
-            <Text style={styles.subGreeting}>WELCasdasOME BACK,</Text>
+            <Text style={styles.subGreeting}>WELCOME BACK,</Text>
             <Text style={styles.greeting}>{userName}</Text>
           </View>
         </View>
+      </View>
+      
+      <View style={styles.scoreHeadingContainer}>
+        <Text style={styles.scoreHeading}>SCORE</Text>
       </View>
 
       {/* Score Row */}
       <View style={styles.scoreContainer}>
         <View style={styles.scoreBox}>
           <Image
-            source={require("../assets/images/Consis_Icon.png")}
-            style = {{width: 40, height: 40, marginLeft: 1}}
+            source={require("../../assets/images/Consis_Icon.png")}
+            style={{ width: 40, height: 40, marginLeft: 1 }}
           />
           <Text style={styles.scoreValue}>90</Text>
           <Text style={styles.scoreTitle}>CONSISTENCY</Text>
         </View>
         <View style={styles.scoreBox}>
           <Image
-            source={require("../assets/images/pr_icon.png")}
-            style = {{width: 40, height: 40, marginLeft: 0}}
+            source={require("../../assets/images/pr_icon.png")}
+            style={{ width: 40, height: 40, marginRight: 1 }}
           />
-          <Text style={styles.scoreValue}>85</Text>
+          <Text style={styles.scoreValue}>10</Text>
           <Text style={styles.scoreTitle}>PR</Text>
         </View>
         <View style={styles.scoreBox}>
           <Image
-            source={require("../assets/images/overall_icon.png")}
-            style = {{width: 40, height: 40, marginLeft: 0}}
+            source={require("../../assets/images/overall_icon.png")}
+            style={{ width: 40, height: 40, marginLeft: 2 }}
           />
-          <Text style={styles.scoreValue}>88</Text>
+          <Text style={styles.scoreValue}>100</Text>
           <Text style={styles.scoreTitle}>OVERALL</Text>
         </View>
       </View>
 
-      {/* Center Section */}
-      <View style={styles.centerContainer}>
-        <Text style={styles.welcomeText}>Welcome to the Gym App</Text>
-        <Button title="Log a Session" onPress={() => router.push("/logSession")} />
+      <View style={styles.scoreHeadingContainer}>
+        <Text style={styles.scoreHeading}>PAST WEEK</Text>
       </View>
+
+      {/* Week View Section */}
+      <WorkoutWeek />
     </View>
   );
 }
@@ -76,6 +83,7 @@ const styles = StyleSheet.create({
   subprofileContainer: {
     flexDirection: "column",
     alignItems: "flex-start",
+    marginBottom: 10,
   },
   profilePic: {
     width: 50,
@@ -89,22 +97,26 @@ const styles = StyleSheet.create({
     color: "#bdbdbd",
   },
   greeting: {
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: "bold",
     color: "#fff",
   },
-  scoreIcons: {
-    width: 40,
-    height: 40,
-    borderRadius: 25,
-    marginRight: 10,
+  scoreHeadingContainer: {
+    alignItems: "flex-start",
+    marginTop: 30,
+    marginLeft: 20,
+  },
+  scoreHeading:{
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#fff",
   },
   scoreContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
     marginHorizontal: 15,
-    marginTop: 20,
+    marginTop: 10,
   },
   scoreBox: {
     backgroundColor: "#424242",

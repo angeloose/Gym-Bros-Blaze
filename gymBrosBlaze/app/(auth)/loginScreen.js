@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
+import { useRouter } from 'expo-router';
 
 export default function LoginScreen({ navigation }) {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   // IMPLEMENT BACKEND AND LOGIN PROPERLY
-  const handleLogin = async () => {
+  const handleLogin = () => {
     try {
       //const response = await fetch("https://your-api.com/login", {
       //  method: "POST",
@@ -22,7 +24,7 @@ export default function LoginScreen({ navigation }) {
       //console.log("Login response:", data);
 
       // Handle success (e.g., navigate, store token)
-      navigation.navigate("Main");
+      router.push('/main'); // Goes to main.tsx (tabs layout)
 
     } catch (error) {
       console.error("Login error:", error);

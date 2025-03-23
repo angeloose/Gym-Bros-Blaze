@@ -1,24 +1,32 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { useRouter } from 'expo-router';
 
 export default function HomeScreen({ navigation }) {
+  const router = useRouter();
+  const goToLogin = () => {
+    router.push('/loginScreen'); // or .replace('/main')
+  };
+  const goToSignUp = () => {
+    router.push('/signUpScreen'); // or .replace('/main')
+  };
   return (
     <View style={styles.container}>
       {/* Top Section */}
       <View style={styles.topContainer}>
         <Text style={styles.welcomeText}>WELCOME TO</Text>
         <Image 
-          source={require("../assets/images/blazeLogo.png")} 
+          source={require("../../assets/images/blazeLogo.png")} 
           style={styles.logoImage} 
         />
       </View>
 
       {/* Buttons Section */}
       <View style={styles.containerB}>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Login")}>
+        <TouchableOpacity style={styles.button} onPress={goToLogin}>
           <Text style={styles.buttonText}>LOGIN</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Sign Up")}>
+        <TouchableOpacity style={styles.button} onPress={goToSignUp}>
           <Text style={styles.buttonText}>SIGN UP</Text>
         </TouchableOpacity>
       </View>

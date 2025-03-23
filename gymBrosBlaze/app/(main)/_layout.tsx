@@ -34,7 +34,7 @@ export default function Layout() {
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="main"
         options={{
           title: "Home",
           tabBarIcon: ({ color, size }) => (
@@ -57,10 +57,19 @@ export default function Layout() {
       options={{
         title: "Leaderboard",
         tabBarIcon: ({ color, size }) => (
-          <Ionicons name="flame" color={"#fff"} size={size} />
+          <Ionicons name="flame-outline" color={"#fff"} size={size} />
         ),
       }}
-    />
+      />
+      <Tabs.Screen
+        name="friends"
+        options={{
+          title: "Friends",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="people-outline" color={"#fff"} size={size} />
+          ),
+        }}
+      />
   </Tabs>
   );
 }
