@@ -35,16 +35,18 @@ export default function LoginScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
+      <Text style={styles.title}>LOGIN</Text>
       <TextInput
         style={styles.input}
         placeholder="Username"
+        placeholderTextColor="#fff"
         value={email}
         onChangeText={setEmail}
       />
       <TextInput
         style={styles.input}
         placeholder="Password"
+        placeholderTextColor="#fff"
         value={password}
         onChangeText={setPassword}
         secureTextEntry
@@ -62,20 +64,23 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: 20,
-    backgroundColor: "292929",
+    backgroundColor: "#292929",
   },
   title: {
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 20,
+    color: "#fff",
   },
   input: {
     width: "100%",
     padding: 15,
     borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 10,
-    marginBottom: 15,
+    borderColor: "#fff",
+    marginTop: 20,
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#fff",
   },
   button: {
     backgroundColor: "#007AFF",
