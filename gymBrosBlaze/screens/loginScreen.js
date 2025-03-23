@@ -1,24 +1,33 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
 
-export default function LoginScreen() {
+export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  // IMPLEMENT BACKEND AND LOGIN PROPERLY
   const handleLogin = async () => {
     try {
-      const response = await fetch("https://your-api.com/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
-  
-      const data = await response.json();
-      console.log("Login response:", data);
+      //const response = await fetch("https://your-api.com/login", {
+      //  method: "POST",
+      //  headers: { "Content-Type": "application/json" },
+      //  body: JSON.stringify({ email, password }),
+      //});
+      
+      //if (!response.ok) {
+      //  throw new Error(`HTTP error! status: ${response.status}`);
+      //}
+
+      //const data = await response.json();
+      //console.log("Login response:", data);
+
       // Handle success (e.g., navigate, store token)
+      navigation.navigate("Main");
+
     } catch (error) {
       console.error("Login error:", error);
     }
+    
   };
   
 
