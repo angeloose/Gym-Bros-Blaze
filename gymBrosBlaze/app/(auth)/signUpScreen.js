@@ -49,7 +49,7 @@ const SignUpScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Sign Up</Text>
+      <Text style={styles.header}>SIGN UP</Text>
 
       <TextInput
         style={styles.input}
@@ -64,7 +64,7 @@ const SignUpScreen = ({ navigation }) => {
         value={password}
         onChangeText={setPassword}
       />
-      <Button title="Sign Up" onPress={handleSignUp} />
+      <Button title="SIGN UP" onPress={goToLogin} />
 
     </View>
   );
@@ -75,6 +75,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     padding: 20,
+    backgroundColor: "#292929",
   },
   header: {
     fontSize: 24,
