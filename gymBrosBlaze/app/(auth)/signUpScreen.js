@@ -36,7 +36,7 @@ const SignUpScreen = ({ navigation }) => {
   
       if (response.ok) {
         Alert.alert("Success", data.message);
-        navigation.navigate("Login");
+        router.push('/loginScreen');
       } else {
         Alert.alert("Error", data.message || "Sign up failed");
       }
@@ -64,7 +64,7 @@ const SignUpScreen = ({ navigation }) => {
         value={password}
         onChangeText={setPassword}
       />
-      <Button title="Sign Up" onPress={goToLogin} />
+      <Button title="Sign Up" onPress={handleSignUp} />
 
     </View>
   );
