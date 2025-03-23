@@ -25,27 +25,33 @@ const SignUpScreen = ({ navigation }) => {
     if (!validateForm()) return;
   
     try {
-      const response = await fetch(`${API_BASE_URL}/signup`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          username,
-          password,
-        }),
-      });
-  
-      const data = await response.json();
-  
-      if (response.ok) {
-        Alert.alert("Success", data.message);
-        router.push('/loginScreen');
-      } else {
-        Alert.alert("Error", data.message || "Sign up failed");
-      }
-    } catch (error) {
-      console.error("Sign up error:", error);
-      Alert.alert("Error", "Could not connect to server");
-    }
+  const response = await fetch(`${API_BASE_URL}/signup`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      username,
+      password,
+    }),
+  });
+
+  // 🧪 Read and log raw response
+  const text = await response.text();
+  console.log("🧪 Raw response from /signup:", text);
+
+  // ✅ Try parsing it as JSON (will fail if it's HTML)
+  const data = JSON.parse(text);
+
+  if (response.ok) {
+    Alert.alert("Success", data.message);
+    router.push('/loginScreen');
+  } else {
+    Alert.alert("Error", data.message || "Sign up failed");
+  }
+} catch (error) {
+  console.error("❌ Sign up error:", error);
+  Alert.alert("Error", "Could not connect to server");
+}
+
   };
   
 
