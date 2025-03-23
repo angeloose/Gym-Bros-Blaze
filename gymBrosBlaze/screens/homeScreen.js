@@ -10,7 +10,7 @@ export default function HomeScreen({ navigation }) {
         <Text style={styles.welcomeText}>WELCOME TO</Text>
         <Text style={styles.welcomeText2}>GYM BROS BLAZE</Text>
         <LoginButton navigation={navigation} />
-        <SignUpButton naviation={navigation} />
+        <SignUpButton navigation={navigation} />
       </View>
     </View>
   );

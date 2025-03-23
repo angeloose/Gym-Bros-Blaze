@@ -1,81 +1,81 @@
-import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
+import React, { useState } from 'react';
+import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native';
 
-export default function SignUpScreen() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+const SignUpScreen = ({ navigation }) => {
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const handleLogin = async () => {
-    try {
-      const response = await fetch("https://your-api.com/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
-  
-      const data = await response.json();
-      console.log("Login response:", data);
-      // Handle success (e.g., navigate, store token)
-    } catch (error) {
-      console.error("Login error:", error);
+  // Simple validation function
+  const validateForm = () => {
+    if (!username || !email || !password) {
+      Alert.alert('Error', 'Please fill out all fields');
+      return false;
+    }
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      Alert.alert('Error', 'Please enter a valid email address');
+      return false;
+    }
+    return true;
+  };
+
+  const handleSignUp = () => {
+    if (validateForm()) {
+      Alert.alert('Success', 'Sign Up Successful');
+      // Here, you can handle the sign up logic, like saving data or making API calls.
+      // After that, navigate to the Login screen.
+      navigation.navigate('Login');
     }
   };
-  
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
+      <Text style={styles.header}>Sign Up</Text>
+
+      <TextInput
+        style={styles.input}
+        placeholder="Username"
+        value={username}
+        onChangeText={setUsername}
+      />
       <TextInput
         style={styles.input}
         placeholder="Email"
+        keyboardType="email-address"
         value={email}
         onChangeText={setEmail}
-        keyboardType="email-address"
       />
       <TextInput
         style={styles.input}
         placeholder="Password"
+        secureTextEntry
         value={password}
         onChangeText={setPassword}
-        secureTextEntry
       />
-      <TouchableOpacity style={styles.button} onPress={handleLogin}>
-        <Text style={styles.buttonText}>Login</Text>
-      </TouchableOpacity>
+      <Button title="Sign Up" onPress={handleSignUp} />
+
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
     padding: 20,
   },
-  title: {
+  header: {
     fontSize: 24,
-    fontWeight: "bold",
     marginBottom: 20,
+    textAlign: 'center',
   },
   input: {
-    width: "100%",
-    padding: 15,
+    height: 40,
+    borderColor: 'gray',
     borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 10,
-    marginBottom: 15,
-  },
-  button: {
-    backgroundColor: "#007AFF",
-    padding: 15,
-    borderRadius: 10,
-    alignItems: "center",
-    width: "100%",
-  },
-  buttonText: {
-    color: "white",
-    fontSize: 18,
-    fontWeight: "bold",
+    marginBottom: 10,
+    paddingLeft: 10,
   },
 });
+
+export default SignUpScreen;

@@ -3,8 +3,8 @@ import { TouchableOpacity, Text, StyleSheet } from "react-native";
 
 export default function SignUpButton({ navigation }) {
   return (
-    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Login")}>
-      <Text style={styles.text}>LOGIN</Text>
+    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Sign Up")}>
+      <Text style={styles.text}>SIGN UP</Text>
     </TouchableOpacity>
   );
 }
