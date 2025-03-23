@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, Button } from "react-native";
 import { useRouter } from "expo-router";
+import WorkoutWeek from "./WorkoutWeek";
 
 export default function Index() {
   const router = useRouter();
@@ -50,7 +51,16 @@ export default function Index() {
           <Text style={styles.scoreValue}>100</Text>
           <Text style={styles.scoreTitle}>OVERALL</Text>
         </View>
+        
+        
       </View>
+      <View style={styles.scoreHeadingContainer}>
+        <Text style={styles.scoreHeading}>PAST WEEK</Text>
+      </View>
+
+      {/* Week View Section */}
+  
+      <WorkoutWeek />
 
       {/* Center Section */}
       <View style={styles.centerContainer}>
@@ -97,7 +107,7 @@ const styles = StyleSheet.create({
   },
   scoreHeadingContainer: {
     alignItems: "flex-start",
-    marginTop: 15,
+    marginTop: 30,
     marginLeft: 20,
   },
   scoreHeading:{
@@ -134,6 +144,16 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#fff",
     marginTop: 5,
+  },
+  pastweekheadingContainer: {
+    alignItems: "flex-start",
+    marginTop: 30,
+    marginLeft: 20,
+  },
+  pastweekHeading:{
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#fff",
   },
   centerContainer: {
     flex: 1,
