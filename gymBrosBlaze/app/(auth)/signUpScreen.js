@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native';
+import { useRouter } from 'expo-router';
 
 const SignUpScreen = ({ navigation }) => {
+  const router = useRouter();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+  const goToLogin = () => {
+    router.push('/loginScreen'); // or .replace('/main')
+  };
   // Simple validation function
   const validateForm = () => {
     if (!username || !password) {
@@ -59,7 +64,7 @@ const SignUpScreen = ({ navigation }) => {
         value={password}
         onChangeText={setPassword}
       />
-      <Button title="Sign Up" onPress={handleSignUp} />
+      <Button title="Sign Up" onPress={goToLogin} />
 
     </View>
   );
