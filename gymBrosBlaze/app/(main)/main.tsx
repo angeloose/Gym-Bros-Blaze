@@ -2,10 +2,11 @@ import React from "react";
 import { View, Text, Image, StyleSheet, Button } from "react-native";
 import { useRouter } from "expo-router";
 import WorkoutWeek from "../../Components/WorkoutWeek"
+import FastImage from 'react-native-fast-image';
 
 export default function main() {
   const router = useRouter();
-  const userName = "JOHN JOHNATHAN";
+  const userName = "JOHN JOHATHAN";
 
   return (
     <View style={styles.container}>
@@ -62,6 +63,18 @@ export default function main() {
 
       {/* Week View Section */}
       <WorkoutWeek />
+      <View style={styles.imagecontainer}>
+        <Image 
+          source={require("../../assets/images/blue_flame.gif")} 
+          style={styles.gif} 
+          resizeMode={FastImage.resizeMode.contain}
+        />
+        <Text style={styles.imagetext}> 4 </Text>
+        <Image
+        source={require("../../assets/images/blazeText.png")}
+        style={styles.blaze}
+        />
+      </View>
     </View>
   );
 }
@@ -145,4 +158,34 @@ const styles = StyleSheet.create({
     color: "#fff",
     marginBottom: 20,
   },
+  imagecontainer: {
+    position: 'relative', // This makes the text overlay possible
+    width: 400,           // Set a width for the image
+    height: 400, 
+    flex: 1,
+    bottom: '4%',
+  },
+  gif: {
+    width: 300,  
+    height: 330,
+    alignItems: "center",
+    marginLeft: 12, 
+  },
+  imagetext: {
+    position: 'absolute',  // This positions the text on top of the image
+    alignItems: "center",
+    bottom: '22%',
+    left: '42%',
+    color: 'black',        // Text color
+    fontSize: 60,          // Font size
+    fontStyle: 'italic'
+  },
+  blaze: {
+    width: 250,  
+    height: 100, 
+    position: 'absolute',  // This positions the text on top of the image
+    alignItems: "center",
+    marginTop: 200,
+    marginLeft: 80,
+  }
 });

@@ -54,7 +54,6 @@ export default function LogSession() {
 
   return (
     <View style={styles.container}>
-      <ScrollView style={{ flex: 1 }}>
         {/* Header */}
         <View style={styles.topContainer}>
           <View style={styles.headingContainer}>
@@ -154,7 +153,6 @@ export default function LogSession() {
           )}
         />
         </View>
-      </ScrollView>
     </View>
   );
 }
