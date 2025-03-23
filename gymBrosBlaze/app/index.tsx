@@ -21,7 +21,9 @@ export default function Index() {
           </View>
         </View>
       </View>
-
+      <View style={styles.scoreHeadingContainer}>
+        <Text style={styles.scoreHeading}>SCORE</Text>
+      </View>
       {/* Score Row */}
       <View style={styles.scoreContainer}>
         <View style={styles.scoreBox}>
@@ -35,17 +37,17 @@ export default function Index() {
         <View style={styles.scoreBox}>
           <Image
             source={require("../assets/images/pr_icon.png")}
-            style = {{width: 40, height: 40, marginLeft: 0}}
+            style = {{width: 40, height: 40, marginRight: 1}}
           />
-          <Text style={styles.scoreValue}>85</Text>
+          <Text style={styles.scoreValue}>10</Text>
           <Text style={styles.scoreTitle}>PR</Text>
         </View>
         <View style={styles.scoreBox}>
           <Image
             source={require("../assets/images/overall_icon.png")}
-            style = {{width: 40, height: 40, marginLeft: 0}}
+            style = {{width: 40, height: 40, marginLeft: 2}}
           />
-          <Text style={styles.scoreValue}>88</Text>
+          <Text style={styles.scoreValue}>100</Text>
           <Text style={styles.scoreTitle}>OVERALL</Text>
         </View>
       </View>
@@ -89,6 +91,16 @@ const styles = StyleSheet.create({
     color: "#bdbdbd",
   },
   greeting: {
+    fontSize: 25,
+    fontWeight: "bold",
+    color: "#fff",
+  },
+  scoreHeadingContainer: {
+    alignItems: "flex-start",
+    marginTop: 15,
+    marginLeft: 20,
+  },
+  scoreHeading:{
     fontSize: 20,
     fontWeight: "bold",
     color: "#fff",
@@ -104,7 +116,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     alignItems: "center",
     marginHorizontal: 15,
-    marginTop: 20,
+    marginTop: 10,
   },
   scoreBox: {
     backgroundColor: "#424242",
