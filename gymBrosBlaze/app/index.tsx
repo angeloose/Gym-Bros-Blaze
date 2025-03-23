@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, Button } from "react-native";
 import { useRouter } from "expo-router";
-import WorkoutWeek from "../Components/WorkoutWeek";
+import WorkoutWeek from "../components/WorkoutWeek.tsx";
 
 export default function Index() {
   const router = useRouter();

@@ -51,6 +51,16 @@ export default function Layout() {
           ),
         }}
       />
-    </Tabs>
+      
+      <Tabs.Screen
+      name="leaderboard"
+      options={{
+        title: "Leaderboard",
+        tabBarIcon: ({ color, size }) => (
+          <Ionicons name="flame" color={"#fff"} size={size} />
+        ),
+      }}
+    />
+  </Tabs>
   );
 }
