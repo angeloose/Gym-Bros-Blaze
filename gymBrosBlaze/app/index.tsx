@@ -16,6 +16,7 @@ export default function Index() {
             source={require("../assets/images/demo_pfp.jpg")}
             style={styles.profilePic}
           />
+          
           <View style={styles.subprofileContainer}>
             <Text style={styles.subGreeting}>WELCOME BACK,</Text>
             <Text style={styles.greeting}>{userName}</Text>
