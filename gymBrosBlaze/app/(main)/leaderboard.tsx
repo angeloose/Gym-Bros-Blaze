@@ -10,9 +10,9 @@ interface User {
 const Leaderboard = () => {
   const users: User[] = [
     { id: '1', name: 'John Doe', score: 100 },
-    { id: '2', name: 'Jane Smith', score: 95 },
-    { id: '3', name: 'Alice Johnson', score: 90 },
-    { id: '4', name: 'Bob Brown', score: 85 },
+    { id: '2', name: 'Jane Doe', score: 95 },
+    { id: '3', name: 'Alice Doe', score: 90 },
+    { id: '4', name: 'Bob Doe', score: 85 },
   ];
 
   const renderItem = ({ item }: { item: User }) => (

@@ -6,7 +6,7 @@ import FastImage from 'react-native-fast-image';
 
 export default function main() {
   const router = useRouter();
-  const userName = "JOHN JOHATHAN";
+  const userName = "JOHN DOE";
 
   return (
     <View style={styles.container}>
