@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
+import { API_BASE_URL } from '../../config'; // or adjust if config.js is elsewhere
+
 
 const SignUpScreen = ({ navigation }) => {
   const router = useRouter();
@@ -23,7 +25,7 @@ const SignUpScreen = ({ navigation }) => {
     if (!validateForm()) return;
   
     try {
-      const response = await fetch("http://192.168.56.1:5000/api/signup", {
+      const response = await fetch(`${API_BASE_URL}/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -64,7 +66,7 @@ const SignUpScreen = ({ navigation }) => {
         value={password}
         onChangeText={setPassword}
       />
-      <Button title="SIGN UP" onPress={goToLogin} />
+      <Button title="SIGN UP" onPress={handleSignUp} />
 
     </View>
   );
