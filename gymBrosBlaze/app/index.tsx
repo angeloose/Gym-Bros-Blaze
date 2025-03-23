@@ -22,16 +22,24 @@ export default function Index() {
             <Text style={styles.greeting}>{userName}</Text>
           </View>
         </View>
+        {/* Manage Friends Button */}
+        <Button 
+          title="Manage Friends" 
+          onPress={() => router.push('/friends')} 
+          color="#6A5ACD"
+        />
       </View>
+      
       <View style={styles.scoreHeadingContainer}>
         <Text style={styles.scoreHeading}>SCORE</Text>
       </View>
+
       {/* Score Row */}
       <View style={styles.scoreContainer}>
         <View style={styles.scoreBox}>
           <Image
             source={require("../assets/images/Consis_Icon.png")}
-            style = {{width: 40, height: 40, marginLeft: 1}}
+            style={{ width: 40, height: 40, marginLeft: 1 }}
           />
           <Text style={styles.scoreValue}>90</Text>
           <Text style={styles.scoreTitle}>CONSISTENCY</Text>
@@ -39,7 +47,7 @@ export default function Index() {
         <View style={styles.scoreBox}>
           <Image
             source={require("../assets/images/pr_icon.png")}
-            style = {{width: 40, height: 40, marginRight: 1}}
+            style={{ width: 40, height: 40, marginRight: 1 }}
           />
           <Text style={styles.scoreValue}>10</Text>
           <Text style={styles.scoreTitle}>PR</Text>
@@ -47,23 +55,19 @@ export default function Index() {
         <View style={styles.scoreBox}>
           <Image
             source={require("../assets/images/overall_icon.png")}
-            style = {{width: 40, height: 40, marginLeft: 2}}
+            style={{ width: 40, height: 40, marginLeft: 2 }}
           />
           <Text style={styles.scoreValue}>100</Text>
           <Text style={styles.scoreTitle}>OVERALL</Text>
         </View>
-        
-        
       </View>
+
       <View style={styles.scoreHeadingContainer}>
         <Text style={styles.scoreHeading}>PAST WEEK</Text>
       </View>
 
       {/* Week View Section */}
-  
       <WorkoutWeek />
-
-      {/* Center Section */}
     </View>
   );
 }
@@ -85,6 +89,7 @@ const styles = StyleSheet.create({
   subprofileContainer: {
     flexDirection: "column",
     alignItems: "flex-start",
+    marginBottom: 10,
   },
   profilePic: {
     width: 50,
@@ -112,12 +117,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#fff",
   },
-  scoreIcons: {
-    width: 40,
-    height: 40,
-    borderRadius: 25,
-    marginRight: 10,
-  },
   scoreContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
@@ -141,16 +140,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#fff",
     marginTop: 5,
-  },
-  pastweekheadingContainer: {
-    alignItems: "flex-start",
-    marginTop: 30,
-    marginLeft: 20,
-  },
-  pastweekHeading:{
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "#fff",
   },
   centerContainer: {
     flex: 1,

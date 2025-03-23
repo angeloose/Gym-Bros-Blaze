@@ -11,6 +11,10 @@ app.use(express.json());
 
 app.use('/api/tasks', taskRoutes);
 
+const friendRoutes = require('./routes/friends');
+app.use('/api/friends', friendRoutes);
+
+
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     app.listen(process.env.PORT, () =>
