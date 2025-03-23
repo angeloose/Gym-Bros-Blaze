@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native';
+import { API_BASE_URL } from '../config'; // adjust path if needed
 
 const SignUpScreen = ({ navigation }) => {
   const [username, setUsername] = useState('');
@@ -18,7 +19,8 @@ const SignUpScreen = ({ navigation }) => {
     if (!validateForm()) return;
   
     try {
-      const response = await fetch("http://192.168.56.1:5000/api/signup", {
+      console.log("📡 Submitting signup to:", `${API_BASE_URL}/signup`);
+      const response = await fetch(`${API_BASE_URL}/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
