@@ -54,6 +54,7 @@ export default function LogSession() {
 
   return (
     <View style={styles.container}>
+      <ScrollView style={{ flex: 1 }}>
         {/* Header */}
         <View style={styles.topContainer}>
           <View style={styles.headingContainer}>
@@ -139,20 +140,21 @@ export default function LogSession() {
             renderItem={({ item }) => (
               <View style={styles.sessionContainer}>
                 <View style={styles.sessionHeader}>
-                <Text style={styles.sessionTitle}>{item.name} - {item.timestamp}</Text>
-                <TouchableOpacity onPress={() => removeSession(item.id)}>
-                  <Ionicons name="trash-outline" size={20} color="red" />
-                </TouchableOpacity>
-              </View>
-              {item.exercises.map((exercise) => (
-                <Text key={exercise.id} style={styles.listItem}>
-                  {exercise.type} - {exercise.duration} mins
-                </Text>
-              ))}
-            </View>
-          )}
-        />
+                  <Text style={styles.sessionTitle}>{item.name} - {item.timestamp}</Text>
+                  <TouchableOpacity onPress={() => removeSession(item.id)}>
+                    <Ionicons name="trash-outline" size={20} color="red" />
+                  </TouchableOpacity>
+                </View>
+                {item.exercises.map((exercise) => (
+              <Text key={exercise.id} style={styles.listItem}>
+                {exercise.type} - {exercise.duration} mins
+              </Text>
+            ))}
         </View>
+        )}
+/>
+        </View>
+      </ScrollView>
     </View>
   );
 }
