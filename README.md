@@ -7,3 +7,9 @@ Alec Gonzales
 Angelo Cervana
 Reichen Brown
 Russel Harral
+
+
+in task-backend directory, do npm run dev
+update .env to use your WiFi IPv4 address
+open android emulator in android studio
+in project directory, do npx expo start -c
