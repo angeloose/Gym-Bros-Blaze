@@ -11,8 +11,9 @@ const Leaderboard = () => {
   const users: User[] = [
     { id: '1', name: 'John Doe', score: 100 },
     { id: '2', name: 'Jane Doe', score: 95 },
-    { id: '3', name: 'Alice Doe', score: 90 },
-    { id: '4', name: 'Bob Doe', score: 85 },
+    { id: '3', name: 'Alice Doe', score: 70 },
+    { id: '4', name: 'Bob Doe', score: 25 },
+    { id: '5', name: 'Reichen Brown', score: 0 },
   ];
 
   const renderItem = ({ item }: { item: User }) => (
@@ -25,7 +26,7 @@ const Leaderboard = () => {
 
   return (
     <ImageBackground 
-      source={require('../../assets/images/demo.jpg')} // Replace with your image path
+      source={require('../../assets/images/Trophy.png')} // Replace with your image path
       style={styles.backgroundImage}
     >
       <View style={styles.overlay}>
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
-    color: '#0762f5',
+    color: '#FFFFFF', //'#0762f5', -Blue Theme Color
   },
   itemContainer: {
     flexDirection: 'row',
@@ -68,18 +69,18 @@ const styles = StyleSheet.create({
   rank: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#0762f5',
+    color: '#FFFFFF', //'#0762f5', -Blue Theme Color
   },
   name: {
     fontSize: 18,
     flex: 1,
     textAlign: 'center',
-    color: '#0762f5',
+    color: '#FFFFFF', //'#0762f5', -Blue Theme Color
   },
   score: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#0762f5',
+    color: '#FFFFFF', //'#0762f5', -Blue Theme Color
   },
 });
 
